@@ -1,20 +1,285 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU"
+        crossorigin="anonymous">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.7.1/css/bulma.css" />
-    <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
+    <!-- <style>
+
+    </style> -->
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+        crossorigin="anonymous"></script>
     <title>FriendFinder</title>
 </head>
-<body>
 
+<body>
+    <div class="columns is-centered">
+        <div class="column is-half">
+            <section class="hero is-fullheight is-link">
+                <div class="container is-fluid">
+                    <div class="column">
+                        <h1 class="title">Survey Questions</h1>
+                        <hr>
+                        <h2 class="subtitle">About You</h2>
+                    </div>
+                    <br>
+                    <div class="field">
+                        <input class="input" type="text" id="name" placeholder="Name (Required)" required="Required">
+                    </div>
+                    <div class="field">
+                        <input class="input" type="text" id="image-link" placeholder="Link to Photo Image (Required)"
+                            required="Required">
+                    </div>
+                    <div class="field">
+                        <label class="label">
+                            <div class="content is-medium">
+                                <h1>Question 1</h1>
+                                <p>Your mind is always buzzing with unexplored ideas and plans.</p>
+                            </div>
+                        </label>
+                        <div class="select">
+                            <select id="questionOne">
+                                <option value="1">Strongly Disagree</option>
+                                <option value="2">Disagree</option>
+                                <option value="3" selected>Neutral</option>
+                                <option value="4">Agree</option>
+                                <option value="5">Strongly Agree</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="field">
+                        <label class="label">
+                            <div class="content is-medium">
+                                <h1>Question 2</h1>
+                                <p>Generally speaking, you rely more on your experience than your imagination.</p>
+                            </div>
+                        </label>
+                        <div class="select">
+                            <select id="questionTwo">
+                                <option value="1">Strongly Disagree</option>
+                                <option value="2">Disagree</option>
+                                <option value="3" selected>Neutral</option>
+                                <option value="4">Agree</option>
+                                <option value="5">Strongly Agree</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="field">
+                        <label class="label">
+                            <div class="content is-medium">
+                                <h1>Question 3</h1>
+                                <p>You find it easy to stay relaxed and focused even when there is some pressure.</p>
+                            </div>
+                        </label>
+                        <div class="select">
+                            <select id="questionThree">
+                                <option value="1">Strongly Disagree</option>
+                                <option value="2">Disagree</option>
+                                <option value="3" selected>Neutral</option>
+                                <option value="4">Agree</option>
+                                <option value="5">Strongly Agree</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="field">
+                        <label class="label">
+                            <div class="content is-medium">
+                                <h1>Question 4</h1>
+                                <p>You rarely do something just out of sheer curiosity.</p>
+                            </div>
+                        </label>
+                        <div class="select">
+                            <select id="questionFour">
+                                <option value="1">Strongly Disagree</option>
+                                <option value="2">Disagree</option>
+                                <option value="3" selected>Neutral</option>
+                                <option value="4">Agree</option>
+                                <option value="5">Strongly Agree</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="field">
+                        <label class="label">
+                            <div class="content is-medium">
+                                <h1>Question 5</h1>
+                                <p>People can rarely upset you.</p>
+                            </div>
+                        </label>
+                        <div class="select">
+                            <select id="questionFive">
+                                <option value="1">Strongly Disagree</option>
+                                <option value="2">Disagree</option>
+                                <option value="3" selected>Neutral</option>
+                                <option value="4">Agree</option>
+                                <option value="5">Strongly Agree</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="field">
+                        <label class="label">
+                            <div class="content is-medium">
+                                <h1>Question 6</h1>
+                                <p>It is often difficult for you to relate to other people’s feelings.</p>
+                            </div>
+                        </label>
+                        <div class="select">
+                            <select id="questionSix">
+                                <option value="1">Strongly Disagree</option>
+                                <option value="2">Disagree</option>
+                                <option value="3" selected>Neutral</option>
+                                <option value="4">Agree</option>
+                                <option value="5">Strongly Agree</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="field">
+                        <label class="label">
+                            <div class="content is-medium">
+                                <h1>Question 7</h1>
+                                <p>In a discussion, truth should be more important than people’s sensitivities.</p>
+                            </div>
+                        </label>
+                        <div class="select">
+                            <select id="questionSeven">
+                                <option value="1">Strongly Disagree</option>
+                                <option value="2">Disagree</option>
+                                <option value="3" selected>Neutral</option>
+                                <option value="4">Agree</option>
+                                <option value="5">Strongly Agree</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="field">
+                        <label class="label">
+                            <div class="content is-medium">
+                                <h1>Question 8</h1>
+                                <p>You rarely get carried away by fantasies and ideas.</p>
+                            </div>
+                        </label>
+                        <div class="select">
+                            <select id="questionEight">
+                                <option value="1">Strongly Disagree</option>
+                                <option value="2">Disagree</option>
+                                <option value="3" selected>Neutral</option>
+                                <option value="4">Agree</option>
+                                <option value="5">Strongly Agree</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="field">
+                        <label class="label">
+                            <div class="content is-medium">
+                                <h1>Question 9</h1>
+                                <p>You think that everyone’s views should be respected regardless of whether they are
+                                    supported
+                                    by
+                                    facts or not.</p>
+                            </div>
+                        </label>
+                        <div class="select">
+                            <select id="questionNine">
+                                <option value="1">Strongly Disagree</option>
+                                <option value="2">Disagree</option>
+                                <option value="3" selected>Neutral</option>
+                                <option value="4">Agree</option>
+                                <option value="5">Strongly Agree</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="field">
+                        <label class="label">
+                            <div class="content is-medium">
+                                <h1>Question 10</h1>
+                                <p>You feel more energetic after spending time with a group of people.</p>
+                            </div>
+                        </label>
+                        <div class="select">
+                            <select id="questionTen">
+                                <option value="1">Strongly Disagree</option>
+                                <option value="2">Disagree</option>
+                                <option value="3" selected>Neutral</option>
+                                <option value="4">Agree</option>
+                                <option value="5">Strongly Agree</option>
+                            </select>
+                        </div>
+                    </div>
+                    <br>
+                    <div class="field is-center">
+                        <div class="control">
+                            <button class="button is-large is-black" type="submit">Submit</button>
+                        </div>
+                    </div>
+            </section>
+        </div>
+    </div>
+    </div>
+
+    <div id="error" class="modal">
+        <div class="modal-background"></div>
+        <div class="modal-content">
+            <div class="box">
+                <article class="media">
+                    <div class="media-content">
+                        <div class="content">
+                            <p>
+                                Input fields are empty
+                            </p>
+                        </div>
+                    </div>
+                </article>
+            </div>
+        </div>
+        <button class="modal-close is-large" aria-label="close"></button>
+    </div>
 
 
     <script type="text/javascript">
-        
+        $(".modal-close").on("click", function () {
+            $("#error").hide();
+        })
+        $(".button").on("click", function (e) {
+            event.preventDefault();
+            if ($("#name").val() === "" || $("#image-link").val() === "") {
+                $("#error").show();
+            } else {
+                var userSurvey = {
+                    name: $("#name").val().trim(),
+                    photo: $("#image-link").val().trim(),
+                    scores: [
+                        $("#questionOne").val(),
+                        $("#questionTwo").val(),
+                        $("#questionThree").val(),
+                        $("#questionFour").val(),
+                        $("#questionFive").val(),
+                        $("#questionSix").val(),
+                        $("#questionSeven").val(),
+                        $("#questionEight").val(),
+                        $("#questionNine").val(),
+                        $("#questionTen").val(),
+                    ]
+                }
+
+                console.log(userSurvey);
+
+
+                $("#questionOne").prop("selectedIndex", 2),
+                $("#questionTwo").prop("selectedIndex", 2),
+                $("#questionThree").prop("selectedIndex", 2),
+                $("#questionFour").prop("selectedIndex", 2),
+                $("#questionFive").prop("selectedIndex", 2),
+                $("#questionSix").prop("selectedIndex", 2),
+                $("#questionSeven").prop("selectedIndex", 2),
+                $("#questioneEight").prop("selectedIndex", 2),
+                $("#questionNine").prop("selectedIndex", 2),
+                $("#questionTen").prop("selectedIndex", 2)
+            }
+
+        });
     </script>
 </body>
+
 </html>
