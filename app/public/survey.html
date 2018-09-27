@@ -8,9 +8,12 @@
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU"
         crossorigin="anonymous">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.7.1/css/bulma.css" />
-    <!-- <style>
-
-    </style> -->
+    <style>
+        #errorBox {
+            margin-top: 40%;
+        }
+    </style>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/animate.css@3.5.2/animate.min.css">
     <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
         crossorigin="anonymous"></script>
     <title>FriendFinder</title>
@@ -18,7 +21,7 @@
 
 <body>
     <div class="columns is-centered">
-        <div class="column is-half">
+        <div class="column is-three-quarters">
             <section class="hero is-fullheight is-link">
                 <div class="container is-fluid">
                     <div class="column">
@@ -218,16 +221,17 @@
     </div>
     </div>
 
-    <div id="error" class="modal">
+    <div id="match" class="modal animated slideInDown">
         <div class="modal-background"></div>
         <div class="modal-content">
-            <div class="box">
+            <div class="box" id="matchBox">
                 <article class="media">
                     <div class="media-content">
-                        <div class="content">
-                            <p>
-                                Input fields are empty
-                            </p>
+                        <header class="modal-card-head">
+                            <p class="modal-card-title">Best Match</p>
+                        </header>
+                        <div class="content" id="appendMatch">
+
                         </div>
                     </div>
                 </article>
@@ -236,16 +240,54 @@
         <button class="modal-close is-large" aria-label="close"></button>
     </div>
 
+    <div id="error" class="modal animated bounceInUp">
+        <div class="modal-background"></div>
+        <div class="modal-content">
+            <div class="box" id="errorBox">
+                <article class="media">
+                    <div class="media-content">
+                        <div class="content">
+                            <p>
+                                The input fields are empty. Please type in your name and link in your image address.
+                            </p>
+                        </div>
+                    </div>
+                </article>
+            </div>
+        </div>
+        <button class="modal-close is-large closeModal" aria-label="close"></button>
+    </div>
+
 
     <script type="text/javascript">
-        $(".modal-close").on("click", function () {
+        $(".closeModal").on("click", function () {
             $("#error").hide();
-        })
+            $("#match").hide();
+        });
+
+        function runMatch() {
+            $.ajax({
+                url: "/api/friends",
+                method: "GET"
+            }).then(function (matchData) {
+                console.log(matchData);
+                matchData.forEach(function (i) {
+                    $("#appendMatch").empty();
+                    $("#appendMatch").append(
+                        $(`<h1>`).text(`Name: ${i.name}`),
+                        $(`<p class="image is-4by3">`).html(`<img src="${i.photo}" alt="">`)
+                    );
+                });
+            })
+        }
+
         $(".button").on("click", function (e) {
             event.preventDefault();
             if ($("#name").val() === "" || $("#image-link").val() === "") {
                 $("#error").show();
+
             } else {
+                
                 var userSurvey = {
                     name: $("#name").val().trim(),
                     photo: $("#image-link").val().trim(),
@@ -263,19 +305,26 @@
                     ]
                 }
 
+                runMatch();
+                $(`#match`).show();
+
+
+
+
+
                 console.log(userSurvey);
 
 
                 $("#questionOne").prop("selectedIndex", 2),
-                $("#questionTwo").prop("selectedIndex", 2),
-                $("#questionThree").prop("selectedIndex", 2),
-                $("#questionFour").prop("selectedIndex", 2),
-                $("#questionFive").prop("selectedIndex", 2),
-                $("#questionSix").prop("selectedIndex", 2),
-                $("#questionSeven").prop("selectedIndex", 2),
-                $("#questioneEight").prop("selectedIndex", 2),
-                $("#questionNine").prop("selectedIndex", 2),
-                $("#questionTen").prop("selectedIndex", 2)
+                    $("#questionTwo").prop("selectedIndex", 2),
+                    $("#questionThree").prop("selectedIndex", 2),
+                    $("#questionFour").prop("selectedIndex", 2),
+                    $("#questionFive").prop("selectedIndex", 2),
+                    $("#questionSix").prop("selectedIndex", 2),
+                    $("#questionSeven").prop("selectedIndex", 2),
+                    $("#questioneEight").prop("selectedIndex", 2),
+                    $("#questionNine").prop("selectedIndex", 2),
+                    $("#questionTen").prop("selectedIndex", 2)
             }
 
         });
