@@ -1,7 +1,7 @@
 var friendArr = [
     {
-        "name":"Ahmed",
-        "photo":"https://media.licdn.com/mpr/mpr/shrinknp_400_400/p/6/005/064/1bd/3435aa3.jpg",
+        "name":"Miami Morty",
+        "photo":"https://vignette.wikia.nocookie.net/rickandmorty/images/8/83/PM-150.png/revision/latest?cb=20160923033238",
         "scores":[
             5,
             1,
@@ -16,8 +16,8 @@ var friendArr = [
           ]
     },
     {
-        "name":"Ahmed 2",
-        "photo":"https://media.licdn.com/mpr/mpr/shrinknp_400_400/p/6/005/064/1bd/3435aa3.jpg",
+        "name":"Hipster Morty",
+        "photo":"https://pocketmortys.net/images/assets/MortyHipsterFront.png",
         "scores":[
             5,
             1,
@@ -32,8 +32,8 @@ var friendArr = [
           ]
     },
     {
-        "name":"Ahmed 3",
-        "photo":"https://media.licdn.com/mpr/mpr/shrinknp_400_400/p/6/005/064/1bd/3435aa3.jpg",
+        "name":"Survivor Morty",
+        "photo":"https://vignette.wikia.nocookie.net/rickandmorty/images/3/36/PM-180.png/revision/latest?cb=20170725225540",
         "scores":[
             5,
             1,

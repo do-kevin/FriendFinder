@@ -272,10 +272,11 @@
             }).then(function (matchData) {
                 console.log(matchData);
                 matchData.forEach(function (i) {
-                    $("#appendMatch").empty();
+                    console.log(i.name);
+                    console.log(i.photo)
                     $("#appendMatch").append(
-                        $(`<h1>`).text(`Name: ${i.name}`),
-                        $(`<p class="image is-4by3">`).html(`<img src="${i.photo}" alt="">`)
+                        $(`<h1>`).html(`${i.name}`),
+                        $(`<p>`).html(`<img src="${i.photo}">`)
                     );
                 });
             })
