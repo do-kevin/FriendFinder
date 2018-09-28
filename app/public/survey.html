@@ -266,32 +266,49 @@
         });
 
         var totalDifference = [];
+        var compatibility = [];
+        var matches = 0;
+        var min = 0;
 
         function runMatch() {
             // console.log(userScores);
             var num;
             userScores.forEach(function (l) {
                 userRating = l;
+                // console.log(l)
             })
             $.ajax({
                 url: "/api/friends",
                 method: "GET"
             }).then(function (matchData) {
                 // console.log(matchData);
-                var compatibility = [];
+
                 matchData.forEach(function (i) {
 
-                    // console.log(i);
+                    console.log(i);
 
                     i.scores.forEach(function (j) {
-                        compatibility.push(Math.abs(userRating - j));
+                        console.log(Math.abs(userRating - j));
+                        totalDifference = Math.abs(userRating - j);
+                        var sumArr = [];
+                        sumArr.push(totalDifference);
+                        matches = sumArr.reduce(function (a, b) {
+                            return a + b;
+                        })
                     });
-                    console.log(compatibility);
-                    $("#appendMatch").append(
-                        $(`<h1>`).html(`${i.name}`),
-                        $(`<p>`).html(`<img src="${i.photo}">`)
-                    );
+                    compatibility.push(matches);
+
+
                 });
+
+                console.log("Match Array" + compatibility);
+                min = Math.min.apply(null, compatibility);
+                console.log(min);
+
+                $("#appendMatch").append(
+                $(`<h1>`).html(`${matchData[min].name}`),
+                $(`<p>`).html(`<img src="${matchData[min].photo}">`)
+                );
             })
         }
 
@@ -322,6 +339,8 @@
                         Number($("#questionTen").val()),
                     ]
                 }
+                $.post("/api/friends", userSurvey);
+                
 
                 userSurvey.scores.forEach(function (k) {
                     userScores.push(k);
@@ -329,9 +348,10 @@
 
 
                 runMatch();
-                $(`#match`).show();
 
-                // console.log(`User Scores Arr: ${userScores}`);
+
+                $(`#match`).show();
+                
 
                 $("#questionOne").prop("selectedIndex", 2),
                     $("#questionTwo").prop("selectedIndex", 2),
