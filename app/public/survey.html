@@ -237,7 +237,7 @@
                 </article>
             </div>
         </div>
-        <button class="modal-close is-large" aria-label="close"></button>
+        <button class="modal-close is-large closeModal" aria-label="close"></button>
     </div>
 
     <div id="error" class="modal animated bounceInUp">
@@ -261,6 +261,11 @@
 
     <script type="text/javascript">
         $(".closeModal").on("click", function () {
+            $("#error").hide();
+            $("#match").hide();
+        });
+
+            $(".modal-close").on("click", function () {
             $("#error").hide();
             $("#match").hide();
         });
